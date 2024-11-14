@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recherche de Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="main-header py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="#" class="navbar-brand">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="header-logo white-icon">
+            </a>
+            <nav>
+                <a href="#" class="nav-link">Les restaurants</a>
+                <a href="#" class="nav-link">Analyse</a>
+                <a href="#" class="nav-link">A propos de nous</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section fixe avec l'image de fond et le texte -->
+    <div class="hero-section">
+        <!-- Barre de recherche -->
+        <div class="container" style="max-width: 55%;">
+            <p class="intro-text fw-bold">Le guide des meilleurs</p>
+            <p class="intro2-text fw-bold">restaurants de France </p>
+            <div class="card p-3 bg-blur">
+                <div class="row g-2">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Où ?">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Quoi ?">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Combien ?">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary d-flex align-items-center">
+                             <span class="me-1">🔍</span> Recherche
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <p class="under-text fw-bold mt-1">Découvrez les restaurants de votre choix et explorez de nouvelles saveurs près de chez vous !</p>
+        </div>
+    </div>
+
+    <!-- Section avec contenu défilant en dessous de l'image -->
+    <div class="container mt-5">
+    <h2 class="text-start">Le guide des meilleurs restaurants à Paris</h2>
+
+    <p class="text-muted">Bistrots, Restaurants Gastronomiques, Brasseries, toutes les bonnes tables sont sur Bestrestaurantsparis</p>
+
+    <p class="text-muted">Bienvenue sur Best Restaurants Paris, le guide de référence dans la découverte des meilleurs restaurants à Paris. Imaginez un instant… Un dîner dans un restaurant étoilé Michelin, un moment de partage entre amis dans un bistrot de chef convivial, un instant suspendu pour un apéritif sur un rooftop ensoleillé avec vue sur la Tour Eiffel ou les toits de la capitale, ou encore un dîner romantique dans un cadre intimiste… Best Restaurants Paris a pour vocation de vous orienter au mieux dans vos recherches.</p>
+
+    <p class="text-muted">Notre mission ? Vous accompagner dans la découverte des meilleures tables de la capitale, qu’il s’agisse de cuisine française traditionnelle, des restaurants italiens authentiques, de cuisine japonaise raffinée ou de street food savoureuse. Peu importe le quartier de Paris qui vous attire, où même les villes voisines en île-de-France, que ce soit Bastille, Pigalle ou Montparnasse, ou un spot en plein cœur de la capitale, nous sommes là pour vous guider vers l’expérience aboutie d’un repas mémorable.</p>
+
+    <p class="text-muted">Une sélection de restaurants, une histoire à chaque table</p>
+
+    <p class="text-muted">Best Restaurants Paris, c’est bien plus qu’un simple guide. C’est une sélection des restaurants préférés de notre rédaction, une invitation à découvrir des lieux uniques, des saveurs inédites et des histoires passionnantes. Chaque semaine, nous vous proposons de nouveaux articles et mettons à jour les fiches des meilleurs restaurants parisiens avec des extraits de leurs menus et cartes.</p>
+
+    <p class="text-muted">Du restaurant immersif à la table gastronomique avec une vue sur Paris exceptionnelle, en passant par le café cosy de quartier, chaque lieu sélectionné par nos soins est une promesse de nouvelle aventure culinaire.</p>
+
+    <p class="text-muted">Rencontrez les grands chefs de la cuisine parisienne</p>
+
+    <p class="text-muted">Derrière chaque grand restaurant, il y a un grand chef. Parmi eux, le célèbre Chef Paul Pairet, connu pour son restaurant 3 étoiles Michelin Ultraviolet à Shanghai, a récemment ouvert deux nouvelles adresses à Paris, au cœur de l’Hôtel de Crillon : Nonos et Comestibles, promettant une expérience culinaire vivante et raffinée.</p>
+
+    <p class="text-muted">Mais l’aventure ne s’arrête pas là. Imaginez-vous dégustant la cuisine étoilée de Greg Marchand au restaurant Frenchie, ou savourant les produits du terroir sublimés par Thomas Chisholm au Bistrot Belhara. Laissez-vous tenter par la cuisine de haute volée de Bruno Verjus au restaurant Table (2 étoiles au guide Michelin France), ou par la créativité de Julien Sebbag au restaurant Créatures…</p>
+
+    <p class="text-muted">Et que dire de l’expérience unique que propose Thierry Marx au Mandarin Oriental, ou les chefs des palaces parisiens tels que Christian Le Squer au George V, Eric Frechon à l’Hôtel Bristol, ou encore Yannick Alléno au Pavillon Ledoyen ? Ces chefs emblématiques au savoir-faire unique contribuent à faire de Paris la capitale gastronomique du monde !</p>
+
+    <p class="text-muted">Avec Best Restaurants Paris, chaque sortie au restaurant devient une occasion de découvrir ces artistes de l’éphémère, leur cuisine et leurs créations culinaires. Alors, prêt à écrire votre propre histoire gastronomique ? Bonne découverte et bonnes dégustations.</p>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex gap-4 mb-3 mb-md-0">
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-house-door-fill me-1"></i>
+                            Accueil
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-database-fill me-1"></i>
+                            Les restaurants
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-graph-up me-1  "></i>
+                            Analyse
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            A propos de nous
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Copyrigth©2024 Owen BRAUX & Elliot CAMBIER pour le cours de DSIA-4201C : DataEngineering</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    document.addEventListener("scroll", function () {
+        const header = document.querySelector(".main-header");
+        const scrollY = window.scrollY;
+        const threshold = window.innerHeight / 3; // Seuil à la moitié de la hauteur de la fenêtre
+
+        if (scrollY > threshold) {
+            header.classList.add("hidden");
+        } else {
+            header.classList.remove("hidden");
+        }
+    });
+    </script>
+
+</body>
+</html>

@@ -1,7 +1,6 @@
 import scrapy
 from ..items import ArticleItem
 
-
 class GaultMillauSpider(scrapy.Spider):
     name = "gaultmillau"
     allowed_domains = ["fr.gaultmillau.com"]
@@ -9,7 +8,16 @@ class GaultMillauSpider(scrapy.Spider):
     # URL de base pour la pagination
     start_urls = ["https://fr.gaultmillau.com/fr/search/restaurant"]
 
+    # Limite de pages pour le test
+    page_limit = 2  # Changez ce nombre pour limiter le nombre de pages scrappées
+    current_page = 0  # Compteur de pages scrappées
+
     def parse(self, response):
+        # Vérifier si la limite de pages est atteinte
+        if self.current_page >= self.page_limit:
+            self.logger.info("Limite de pages atteinte, arrêt du crawling.")
+            return
+
         # Sélectionner chaque bloc de restaurant
         restaurants = response.css('.BaseCard.RestaurantCard')
 
@@ -63,6 +71,9 @@ class GaultMillauSpider(scrapy.Spider):
             item['category'] = category.strip() if category else None
 
             yield item
+
+        # Incrémenter le compteur de pages
+        self.current_page += 1
 
         # Pagination : détecter si on est sur la première page, puis avancer par incréments de 15
         if "restaurant/" in response.url:
