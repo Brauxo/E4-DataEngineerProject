@@ -16,9 +16,9 @@
                 <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="header-logo white-icon">
             </a>
             <nav>
-                <a href="#" class="nav-link">Les restaurants</a>
-                <a href="#" class="nav-link">Analyse</a>
-                <a href="#" class="nav-link">A propos de nous</a>
+                <a href="{{ url_for('restaurant') }}" class="nav-link">Les restaurants</a>
+                <a href="{{ url_for('analyse') }}" class="nav-link">Analyse</a>
+                <a href="{{ url_for('aboutus') }}" class="nav-link">A propos de nous</a>
             </nav>
         </div>
     </header>
@@ -51,32 +51,44 @@
         </div>
     </div>
 
+
+
     <!-- Section avec contenu défilant en dessous de l'image -->
-    <div class="container mt-5">
-    <h2 class="text-start">Le guide des meilleurs restaurants à Paris</h2>
+    <div class="grid-wrapper">
+    <div class="home-choice container mt-5">
+    <h2 class="cate-text">Découvrez les meilleurs restaurants </h2>
+    <h2 class="catet-text">Explorez toutes nos catégories afin de trouver le restaurant italien, la brasserie moderne, le resto japonais, le gastronomique qui vous convient</h2>
 
-    <p class="text-muted">Bistrots, Restaurants Gastronomiques, Brasseries, toutes les bonnes tables sont sur Bestrestaurantsparis</p>
-
-    <p class="text-muted">Bienvenue sur Best Restaurants Paris, le guide de référence dans la découverte des meilleurs restaurants à Paris. Imaginez un instant… Un dîner dans un restaurant étoilé Michelin, un moment de partage entre amis dans un bistrot de chef convivial, un instant suspendu pour un apéritif sur un rooftop ensoleillé avec vue sur la Tour Eiffel ou les toits de la capitale, ou encore un dîner romantique dans un cadre intimiste… Best Restaurants Paris a pour vocation de vous orienter au mieux dans vos recherches.</p>
-
-    <p class="text-muted">Notre mission ? Vous accompagner dans la découverte des meilleures tables de la capitale, qu’il s’agisse de cuisine française traditionnelle, des restaurants italiens authentiques, de cuisine japonaise raffinée ou de street food savoureuse. Peu importe le quartier de Paris qui vous attire, où même les villes voisines en île-de-France, que ce soit Bastille, Pigalle ou Montparnasse, ou un spot en plein cœur de la capitale, nous sommes là pour vous guider vers l’expérience aboutie d’un repas mémorable.</p>
-
-    <p class="text-muted">Une sélection de restaurants, une histoire à chaque table</p>
-
-    <p class="text-muted">Best Restaurants Paris, c’est bien plus qu’un simple guide. C’est une sélection des restaurants préférés de notre rédaction, une invitation à découvrir des lieux uniques, des saveurs inédites et des histoires passionnantes. Chaque semaine, nous vous proposons de nouveaux articles et mettons à jour les fiches des meilleurs restaurants parisiens avec des extraits de leurs menus et cartes.</p>
-
-    <p class="text-muted">Du restaurant immersif à la table gastronomique avec une vue sur Paris exceptionnelle, en passant par le café cosy de quartier, chaque lieu sélectionné par nos soins est une promesse de nouvelle aventure culinaire.</p>
-
-    <p class="text-muted">Rencontrez les grands chefs de la cuisine parisienne</p>
-
-    <p class="text-muted">Derrière chaque grand restaurant, il y a un grand chef. Parmi eux, le célèbre Chef Paul Pairet, connu pour son restaurant 3 étoiles Michelin Ultraviolet à Shanghai, a récemment ouvert deux nouvelles adresses à Paris, au cœur de l’Hôtel de Crillon : Nonos et Comestibles, promettant une expérience culinaire vivante et raffinée.</p>
-
-    <p class="text-muted">Mais l’aventure ne s’arrête pas là. Imaginez-vous dégustant la cuisine étoilée de Greg Marchand au restaurant Frenchie, ou savourant les produits du terroir sublimés par Thomas Chisholm au Bistrot Belhara. Laissez-vous tenter par la cuisine de haute volée de Bruno Verjus au restaurant Table (2 étoiles au guide Michelin France), ou par la créativité de Julien Sebbag au restaurant Créatures…</p>
-
-    <p class="text-muted">Et que dire de l’expérience unique que propose Thierry Marx au Mandarin Oriental, ou les chefs des palaces parisiens tels que Christian Le Squer au George V, Eric Frechon à l’Hôtel Bristol, ou encore Yannick Alléno au Pavillon Ledoyen ? Ces chefs emblématiques au savoir-faire unique contribuent à faire de Paris la capitale gastronomique du monde !</p>
-
-    <p class="text-muted">Avec Best Restaurants Paris, chaque sortie au restaurant devient une occasion de découvrir ces artistes de l’éphémère, leur cuisine et leurs créations culinaires. Alors, prêt à écrire votre propre histoire gastronomique ? Bonne découverte et bonnes dégustations.</p>
+    <!-- Bloc de catégories -->
+    <div class="category-grid">
+        <div class="category-item">
+            <img src="/static/assets/francais.jpg" alt="Français" class="category-img">
+            <div class="category-label">Français</div>
+        </div>
+        <div class="category-item">
+            <img src="/static/assets/gastronomique.jpg" alt="Gastronomique" class="category-img">
+            <div class="category-label">Gastronomique</div>
+        </div>
+        <div class="category-item">
+            <img src="/static/assets/mediterraneen.png" alt="Méditerranéen" class="category-img">
+            <div class="category-label">Méditerranéen</div>
+        </div>
+        <div class="category-item">
+            <img src="/static/assets/italienne.jpg" alt="Italien" class="category-img">
+            <div class="category-label">Italien</div>
+        </div>
+        <div class="category-item">
+            <img src="/static/assets/japonnais.jpg" alt="Japonais" class="category-img">
+            <div class="category-label">Japonais</div>
+        </div>
+        <div class="category-item">
+            <img src="/static/assets/moderne.jpg" alt="moderne" class="category-img">
+            <div class="category-label">Moderne</div>
+        </div>
+    </div>
+    </div>
 </div>
+
 
     <!-- Footer -->
     <footer class="footer mt-auto py-4 bg-dark text-white">
@@ -84,26 +96,22 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="d-flex gap-4 mb-3 mb-md-0">
-                        <a href="#" class="text-white text-decoration-none">
-                            <i class="bi bi-house-door-fill me-1"></i>
-                            Accueil
-                        </a>
-                        <a href="#" class="text-white text-decoration-none">
+                        <a href="{{ url_for('restaurant') }}" class="text-white text-decoration-none">
                             <i class="bi bi-database-fill me-1"></i>
                             Les restaurants
                         </a>
-                        <a href="#" class="text-white text-decoration-none">
+                        <a href="{{ url_for('analyse') }}" class="text-white text-decoration-none">
                             <i class="bi bi-graph-up me-1  "></i>
                             Analyse
                         </a>
-                        <a href="#" class="text-white text-decoration-none">
+                        <a href="{{ url_for('aboutus') }}" class="text-white text-decoration-none">
                             <i class="bi bi-info-circle-fill me-1"></i>
                             A propos de nous
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Copyrigth©2024 Owen BRAUX & Elliot CAMBIER pour le cours de DSIA-4201C : DataEngineering</p>
+                    <p class="mb-0">Copyrigth©2024 Owen BRAUX & Elliot CAMBIER - DSIA-4201C : DataEngineering</p>
                 </div>
             </div>
         </div>

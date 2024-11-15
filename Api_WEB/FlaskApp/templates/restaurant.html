@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recherche de Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header class="other-header py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="#" class="navbar-brand">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="header-logo white-icon">
+            </a>
+            <nav>
+                <a href="{{ url_for('home') }}" class="nav-link">Accueil</a>
+                <a href="{{ url_for('analyse') }}" class="nav-link">Analyse</a>
+                <a href="{{ url_for('aboutus') }}" class="nav-link">A propos de nous</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex gap-4 mb-3 mb-md-0">
+                        <a href="{{ url_for('home') }}" class="text-white text-decoration-none">
+                            <i class="bi bi-house-door-fill me-1"></i>
+                            Accueil
+                        </a>
+                        <a href="{{ url_for('analyse') }}" class="text-white text-decoration-none">
+                            <i class="bi bi-graph-up me-1  "></i>
+                            Analyse
+                        </a>
+                        <a href="{{ url_for('aboutus') }}" class="text-white text-decoration-none">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            A propos de nous
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Copyrigth©2024 Owen BRAUX & Elliot CAMBIER - DSIA-4201C : DataEngineering</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

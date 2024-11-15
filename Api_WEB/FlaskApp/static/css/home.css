@@ -28,6 +28,14 @@ body {
     background-color: rgba(0, 0, 0, 0);
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
+.other-header {
+    top: 0;
+    width: 100%;
+    height: 89px;
+    z-index: 500;
+    background-color: rgba(26, 26, 26, 1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
 /* Style du header en état "scrollé" */
 .main-header.hidden {
@@ -121,4 +129,176 @@ nav {
     .nav-link {
         padding: 0.75rem 1rem !important;
     }
+}
+
+/* Section de profils avec deux colonnes pour les cartes */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    padding: 0 5%;
+}
+
+/* Carte de profil */
+.profile-card {
+    width: 300px;
+    height: auto;
+    display: inline-block;
+    text-align: justify;
+    vertical-align: top;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 15px;
+}
+
+.about-us-content {
+    color: black; /* Le texte dans cette section sera visible */
+}
+.about-us-content h1 {
+    text-align: center;
+}
+
+.contact-paragraph {
+    text-align: center;
+}
+
+
+/* Nom dans la carte de profil */
+.name-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Image de profil */
+.profile-img {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Texte de profil */
+.profile-text {
+    text-align: justify;
+    margin-top: 1rem;
+    padding: 0 10px;
+}
+
+/* Infos de contact */
+.contact-info {
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+/* Section pour les logiciels */
+.software-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+
+/* Carte pour chaque logiciel */
+.software-item {
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+/* Logo de chaque logiciel */
+.software-logo {
+    width: auto;
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grille pour aligner les catégories */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Quatre colonnes */
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    grid-template-areas:
+        "item1 item1 item2 item2" /* Première ligne avec 2 images */
+        "item3 item4 item5 item6"; /* Deuxième ligne avec 4 images */
+}
+
+/* Style de chaque catégorie */
+.category-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.category-item:nth-child(1) { grid-area: item1; } /* Image 1 */
+.category-item:nth-child(2) { grid-area: item2; } /* Image 2 */
+.category-item:nth-child(3) { grid-area: item3; } /* Image 3 */
+.category-item:nth-child(4) { grid-area: item4; } /* Image 4 */
+.category-item:nth-child(5) { grid-area: item5; } /* Image 5 */
+.category-item:nth-child(6) { grid-area: item6; } /* Image 6 */
+
+/* Image de chaque catégorie avec flou initial */
+.category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px); /* Ajoute un flou initial léger */
+    transition: transform 0.2s ease, filter 0.2s ease; /* Transition pour le zoom et le flou */
+}
+
+/* Supprime le flou et applique le zoom au survol */
+.category-item:hover .category-img {
+    transform: scale(1.1); /* Effet de zoom */
+    filter: blur(0); /* Retire le flou au survol */
+}
+
+/* Superposition de texte centré */
+.category-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre parfaitement le texte */
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 100%; /* Facultatif, pour que le texte reste bien centré même si multi-lignes */
+}
+
+.home-choice {
+    color: black; /* Le texte dans cette section sera visible */
+}
+
+.grid-wrapper {
+    margin-top: 40px;
+    padding: 0 20px; /* Espace interne sur les côtés */
+    max-width: 70%; /* Largeur maximale pour restreindre la grille */
+    margin: 0 auto; /* Centre le conteneur sur la page */
+}
+
+.cate-text {
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 0;
+}
+
+.catet-text {
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 0;
 }
