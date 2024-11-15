@@ -10,13 +10,16 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+      - logger.level=warn
     healthcheck:
       test: ["CMD", "curl", "-f", "http://elasticsearch:9200"]
-      interval: 30s
+      interval: 20s
       timeout: 10s
       retries: 5
     networks:
       - mynetwork
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
 
   scraping:
     container_name: scraping
@@ -27,8 +30,13 @@ services:
         condition: service_healthy
     networks:
       - mynetwork
-    command: ["scrapy", "crawl", "gaultmillau"]
-    restart: "no"  # S'arrête une fois le scraping terminé
+    command: >
+      sh -c "
+      if curl -s http://elasticsearch:9200/gaultmillau_restaurants | grep 'index_not_found_exception'; 
+      then scrapy crawl gaultmillau; 
+      else echo 'Data already present in Elasticsearch, skipping scraping'; 
+      fi"
+    restart: "no"
 
   flask:
     container_name: flask
@@ -50,3 +58,6 @@ services:
 networks:
   mynetwork:
     driver: bridge
+
+volumes:
+  elasticsearch_data:
