@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79481e11-52c3-49b1-b610-9473d53c84af" name="Changes" comment="scrapping et elasticsearch">
+      <change afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/elastic_tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/static/css/aboutus.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/static/css/analyse.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/static/css/restaurant.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/templates/analyse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_WEB/FlaskApp/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_WEB/FlaskApp/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_WEB/FlaskApp/templates/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/templates/aboutus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_WEB/FlaskApp/templates/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/Api_WEB/FlaskApp/templates/restaurant.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cambierelliot&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cambierelliot/E4-DataEngineerProject&quot;,
+    &quot;accountId&quot;: &quot;625b105a-f48b-4128-afbb-862b8cb04313&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2onYYcBugaaCJ24FZY5YDVuAbch" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.items.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ellio/OneDrive/Documents/Postbac/E4-DSIA/Elliot/Semestre1-Periode2/Data/E4-DataEngineer",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ellio\OneDrive\Documents\Postbac\E4 - DSIA\Elliot\semestre 1 - Periode 2\Data\Data-Engineer-Project\tripadvisor_scraper" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79481e11-52c3-49b1-b610-9473d53c84af" name="Changes" comment="" />
+      <created>1731506855261</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731506855261</updated>
+      <workItem from="1731506857147" duration="5033000" />
+      <workItem from="1731521635630" duration="5000" />
+      <workItem from="1731521704432" duration="4004000" />
+      <workItem from="1731530072265" duration="1154000" />
+      <workItem from="1731532921182" duration="301000" />
+      <workItem from="1731533238901" duration="3817000" />
+      <workItem from="1731588505170" duration="21062000" />
+      <workItem from="1731661210657" duration="12589000" />
+    </task>
+    <task id="LOCAL-00001" summary="scrapping et elasticsearch">
+      <option name="closed" value="true" />
+      <created>1731536617432</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731536617432</updated>
+    </task>
+    <task id="LOCAL-00002" summary="scrapping et elasticsearch">
+      <option name="closed" value="true" />
+      <created>1731536665752</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731536665752</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="scrapping et elasticsearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="scrapping et elasticsearch" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Data_Engineer_Project$items.coverage" NAME="items Coverage Results" MODIFIED="1731507167088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Scraping/Scraping" />
+  </component>
+</project>

@@ -8,16 +8,7 @@ class GaultMillauSpider(scrapy.Spider):
     # URL de base pour la pagination
     start_urls = ["https://fr.gaultmillau.com/fr/search/restaurant"]
 
-    # Limite de pages pour le test
-    page_limit = 2  # Changez ce nombre pour limiter le nombre de pages scrappées
-    current_page = 0  # Compteur de pages scrappées
-
     def parse(self, response):
-        # Vérifier si la limite de pages est atteinte
-        if self.current_page >= self.page_limit:
-            self.logger.info("Limite de pages atteinte, arrêt du crawling.")
-            return
-
         # Sélectionner chaque bloc de restaurant
         restaurants = response.css('.BaseCard.RestaurantCard')
 
@@ -60,20 +51,24 @@ class GaultMillauSpider(scrapy.Spider):
             if not rating:
                 category = restaurant.css('.ResumeSelection .row1::text').get()
                 if category and "Membre de l'Académie Gault&Millau" in category:
-                    item['rating'] = "20"
+                    item['rating'] = 20.0
                 else:
                     item['rating'] = None
             else:
-                item['rating'] = rating.strip()
+                try:
+                    item['rating'] = float(rating.strip())
+                except ValueError:
+                    item['rating'] = None
 
             # Catégorie
             category = restaurant.css('.ResumeSelection .row1::text').get()
             item['category'] = category.strip() if category else None
 
-            yield item
+            # Photo
+            photo = restaurant.css('picture img::attr(src)').get()
+            item['photo'] = photo.strip() if photo else None
 
-        # Incrémenter le compteur de pages
-        self.current_page += 1
+            yield item
 
         # Pagination : détecter si on est sur la première page, puis avancer par incréments de 15
         if "restaurant/" in response.url:

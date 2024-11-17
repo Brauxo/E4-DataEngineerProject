@@ -9,3 +9,4 @@ class ArticleItem(scrapy.Item):
     budget = scrapy.Field()
     rating = scrapy.Field()
     category = scrapy.Field()
+    photo = scrapy.Field()
