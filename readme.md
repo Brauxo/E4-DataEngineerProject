@@ -55,7 +55,6 @@ Patientez jusqu'à l'apparition d'un groupe de conteneurs dans votre application
 
 ⚠ Veillez à ne pas arrêter les services pour le bon fonctionnement de l'application Web.
 
-Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en jaune 5000 :5000 (voir image ci-dessous) 
-ou bien cliquer ici :http://localhost:5000/
+Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en jaune 5000 :5000 ou bien cliquer ici :http://localhost:5000/
 ![image](https://github.com/user-attachments/assets/aa1cdcf7-a114-42f7-8e11-be71561aa07e)
 
