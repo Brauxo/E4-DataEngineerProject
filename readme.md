@@ -1,7 +1,7 @@
 <a id="readme-top"></a>
 
 ![Static Badge](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
-![Static Badge](https://img.shields.io/badge/last%20commit%20-%20janurary%202024%20-%20orangered)
+![Static Badge](https://img.shields.io/badge/last%20commit%20-%20November%202024%20-%20orangered)
 
 <a id="readme-top"></a>
 # Sommaire
