@@ -1,3 +1,4 @@
+<a id="readme-top"></a>
 # Sommaire
 
 ## Guide de l'utilisateur
