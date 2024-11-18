@@ -1,5 +1,3 @@
-![img.png](img.png)
-
 # Sommaire
 
 ## Guide de l'utilisateur
@@ -58,3 +56,8 @@ Patientez jusqu'à l'apparition d'un groupe de conteneurs dans votre application
 Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en jaune 5000 :5000 ou bien cliquer ici : http://localhost:5000/
 ![image](https://github.com/user-attachments/assets/aa1cdcf7-a114-42f7-8e11-be71561aa07e)
 
+
+
+
+
+![img.png](img.png)
