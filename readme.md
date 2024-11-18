@@ -1,6 +1,6 @@
 <a id="readme-top"></a>
 <div align="center">
-<img src="https://github.com/user-attachments/assets/78cac6dc-d058-4576-8eef-572581c74311"/>
+<img src="https://github.com/user-attachments/assets/78cac6dc-d058-4576-8eef-572581c74311" width="65%"/>
 </div>
 
 ![Static Badge](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
