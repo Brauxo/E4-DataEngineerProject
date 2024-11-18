@@ -1,7 +1,7 @@
 <a id="readme-top"></a>
-![image](https://github.com/user-attachments/assets/78cac6dc-d058-4576-8eef-572581c74311)
-![Static Badge](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
-![Static Badge](https://img.shields.io/badge/last%20commit%20-%20November%202024%20-%20blue)
+<p align="center">![image](https://github.com/user-attachments/assets/78cac6dc-d058-4576-8eef-572581c74311)</p>
+<p align="center">![Static Badge](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
+![Static Badge](https://img.shields.io/badge/last%20commit%20-%20November%202024%20-%20blue)</p>
 # Description
 
 <a id="readme-top"></a>
