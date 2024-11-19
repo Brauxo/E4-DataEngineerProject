@@ -16,8 +16,8 @@ Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearc
 ## Guide de l'utilisateur
 1. [Prérequis d'installation](#1---Prérequis-dinstallation)
 2. [Installation](#2---Installation)
-3. [Lancer le projet](#3---Lancer-le-projet)
-
+3. [Lancer le projet](#3---Lancer le projet)
+4. [Les différentes pages](#4---Les-differentes-pages)
 
 # Guide de l'utilisateur
 
@@ -27,11 +27,11 @@ Dans un premier temps, regardons ce que vous devez installer pour récupérer et
 
 Deux outils sont nécessaires :
 
-*Git* pour cloner le projet depuis le dépôt opensource GitHub.
+[Git](https://github.com/cambierelliot/E4-DataEngineerProject) pour cloner le projet depuis le dépôt opensource GitHub.
 
-*DockerDesktop* pour faire fonctionner le projet.
+[DockerDesktop](https://www.docker.com/products/docker-desktop/) pour faire fonctionner le projet.
 
-Faites une installation classique.
+Faites une installation classique de docker.
 
 ## 2 - Installation
 
@@ -69,6 +69,8 @@ Patientez jusqu'à l'apparition d'un groupe de conteneurs dans votre application
 Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en jaune 5000 :5000 (voir image ci-dessous) ou bien cliquer ici : http://localhost:5000/
 ![image](https://github.com/user-attachments/assets/aa1cdcf7-a114-42f7-8e11-be71561aa07e)
 
+
+## 4 - Les différentes pages
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 
