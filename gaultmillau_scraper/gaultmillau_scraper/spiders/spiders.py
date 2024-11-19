@@ -51,7 +51,7 @@ class GaultMillauSpider(scrapy.Spider):
             if not rating:
                 category = restaurant.css('.ResumeSelection .row1::text').get()
                 if category and "Membre de l'Académie Gault&Millau" in category:
-                    item['rating'] = 20.0
+                    item['rating'] = 20.0   
                 else:
                     item['rating'] = None
             else:

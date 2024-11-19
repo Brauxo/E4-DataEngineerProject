@@ -62,28 +62,40 @@
     <!-- Bloc de catégories -->
     <div class="category-grid">
         <div class="category-item">
-            <img src="/static/assets/francais.jpg" alt="Français" class="category-img">
-            <div class="category-label">Français</div>
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Français') }}" class="nav-link">
+                <img src="/static/assets/francais.jpg" alt="Français" class="category-img">
+                <div class="category-label">Français</div>
+            </a> 
+        </div> <!-- Closing the category-item div -->
+        <div class="category-item">
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Gastronomique') }}" class="nav-link"></a>
+                <img src="/static/assets/gastronomique.jpg" alt="Gastronomique" class="category-img">
+                <div class="category-label">Gastronomique</div>
+            </a>
         </div>
         <div class="category-item">
-            <img src="/static/assets/gastronomique.jpg" alt="Gastronomique" class="category-img">
-            <div class="category-label">Gastronomique</div>
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Méditerranéen') }}" class="nav-link"></a>
+                <img src="/static/assets/mediterraneen.png" alt="Méditerranéen" class="category-img">
+                <div class="category-label">Méditerranéen</div>
+            </a>
         </div>
         <div class="category-item">
-            <img src="/static/assets/mediterraneen.png" alt="Méditerranéen" class="category-img">
-            <div class="category-label">Méditerranéen</div>
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Italien'}" class="nav-link"></a>
+                <img src="/static/assets/italienne.jpg" alt="Italien" class="category-img">
+                <div class="category-label">Italien</div>
+            </a>
         </div>
         <div class="category-item">
-            <img src="/static/assets/italienne.jpg" alt="Italien" class="category-img">
-            <div class="category-label">Italien</div>
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Japonais') }}" class="nav-link"></a>
+                <img src="/static/assets/japonnais.jpg" alt="Japonais" class="category-img">
+                <div class="category-label">Japonais</div>
+            </a>
         </div>
         <div class="category-item">
-            <img src="/static/assets/japonnais.jpg" alt="Japonais" class="category-img">
-            <div class="category-label">Japonais</div>
-        </div>
-        <div class="category-item">
-            <img src="/static/assets/moderne.jpg" alt="moderne" class="category-img">
-            <div class="category-label">Moderne</div>
+            <a href="{{ url_for('restaurant', min_rating=0, department='', cuisine='Moderne') }}" class="nav-link"></a>
+                <img src="/static/assets/moderne.jpg" alt="moderne" class="category-img">
+                <div class="category-label">Moderne</div>
+            </a>
         </div>
     </div>
     </div>
