@@ -16,7 +16,7 @@ Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearc
 ## Guide de l'utilisateur
 1. [Prérequis d'installation](#1---Prérequis-dinstallation)
 2. [Installation](#2---Installation)
-3. [Lancer le projet](#3---Lancer le projet)
+3. [Lancer le projet](#3---Lancer-le-projet)
 
 
 # Guide de l'utilisateur
