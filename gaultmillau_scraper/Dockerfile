@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Installer les dépendances requises
-RUN pip install scrapy elasticsearch
+RUN pip install scrapy elasticsearch pymongo
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 # Copier les fichiers du dossier local vers le conteneur

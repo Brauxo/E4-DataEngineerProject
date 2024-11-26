@@ -24,3 +24,13 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Enable your custom pipelines for both Elasticsearch and MongoDB
+ITEM_PIPELINES = {
+    'your_project_name.pipelines.ElasticsearchPipeline': 1,
+}
+
+# Add MongoDB specific settings if necessary
+MONGO_URI = 'mongodb://localhost:27017'
+MONGO_DATABASE = 'scrapy_articles'
+

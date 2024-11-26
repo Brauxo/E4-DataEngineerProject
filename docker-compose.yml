@@ -13,13 +13,29 @@ services:
       - logger.level=warn
     healthcheck:
       test: ["CMD", "curl", "-f", "http://elasticsearch:9200"]
-      interval: 20s
+      interval: 30s
       timeout: 10s
       retries: 5
+      start_period: 40s  # Allow Elasticsearch time to initialize
     networks:
       - mynetwork
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
+      - ./aws_config:/usr/share/elasticsearch/.aws:ro  # If using S3 plugin
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    networks:
+      - mynetwork
+    volumes:
+      - mongodb_data:/data/db  # Volume for MongoDB data persistence
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=examplepassword
+    command: ["mongod", "--bind_ip_all"]  # Ensure MongoDB listens for connections on all interfaces
 
   scraping:
     container_name: scraping
@@ -51,6 +67,7 @@ services:
       - mynetwork
     environment:
       - ELASTICSEARCH_HOST=http://elasticsearch:9200
+      - MONGO_URI=mongodb://root:examplepassword@mongodb:27017  # MongoDB URI for Flask
       - FLASK_APP=FlaskApp/app.py
       - FLASK_ENV=development
     command: ["flask", "run", "--host=0.0.0.0", "--port=5000"]
@@ -61,3 +78,6 @@ networks:
 
 volumes:
   elasticsearch_data:
+  mongodb_data:  
+
+
