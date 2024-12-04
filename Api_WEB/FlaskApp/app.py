@@ -51,15 +51,14 @@ def restaurant():
     # Filtre par types de cuisine
     if selected_cuisines:
         query["bool"]["must"].append({
-            "bool": {
-                "should": [
-                    {"wildcard": {"cuisine": f"*{cuisine}*"}} for cuisine in selected_cuisines
-                ]
+            "match": {
+                "cuisine": " ".join(selected_cuisines)
             }
         })
 
     # Exécuter la requête Elasticsearch pour obtenir les restaurants de la page actuelle
     sort = [{"rating": "desc"}]
+    print({"query": query, "sort": sort, "from": start, "size": size})  # Affiche la requête
     response = es.search(index=index_name, body={"query": query, "sort": sort}, from_=start, size=size)
 
     # Utiliser un dictionnaire pour supprimer les doublons
@@ -87,9 +86,8 @@ def restaurant():
     unique_cuisines = set()
     for doc in all_addresses:
         cuisine_field = doc['_source'].get('cuisine')
-        if cuisine_field:
-            cuisines = [c.strip() for c in cuisine_field.split("|")]
-            unique_cuisines.update(cuisines)  # Ajouter chaque catégorie distinctement
+        if cuisine_field and isinstance(cuisine_field, list):
+            unique_cuisines.update(cuisine_field)  # Ajouter chaque élément de la liste
 
     # Nombre total de restaurants sans filtre
     total_restaurants = len(all_addresses)
@@ -98,8 +96,8 @@ def restaurant():
         'restaurant.html',
         restaurants=restaurants,
         unique_departments=unique_departments,
-        unique_cuisines=sorted(unique_cuisines),  # Trier les cuisines
         page=page,
+        unique_cuisines=sorted(unique_cuisines),
         total_hits=total_hits,
         size=size,
         total_restaurants=total_restaurants

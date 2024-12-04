@@ -15,7 +15,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <a href="{{ url_for('home') }}" class="navbar-brand">
                 <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="header-logo white-icon">
-            </a>  
+            </a>
             <nav>
                 <a href="{{ url_for('home') }}" class="nav-link">Accueil</a>
                 <a href="{{ url_for('analyse') }}" class="nav-link">Analyse</a>
@@ -73,7 +73,7 @@
     </div>
 
     <!-- Boutons -->
-    <div class="d-flex justify-content-between mt-3">
+    <div class="d-flex justify-content-center mt-3">
         <button type="submit" class="btn btn-primary">Rechercher</button>
     </div>
 
@@ -82,9 +82,12 @@
         {{ total_hits }} restaurants correspondent à vos critères sur {{ total_restaurants }} restaurants.
     </p>
     <a href="{{ url_for('restaurant') }}" class="btn btn-secondary">Clean Filters</a>
+
+    {% if total_hits == 0 %}
+    <p class="excep" >Aucun restaurant ne correspond à vos critères. Veuillez réinitialiser vos filtres.</p>
+    {% endif %}
 </form>
 </div>
-
 
         <!-- Liste des restaurants -->
         {% for restaurant in restaurants %}
@@ -115,9 +118,10 @@
             {% if restaurant.cuisine %}
                 <div class="info-item">
                     <span class="info-label">Cuisine</span>
-                    <span class="info-value">{{ restaurant.cuisine }}</span>
+                    <span class="info-value">{{ restaurant.cuisine | join(', ') }}</span>
                 </div>
             {% endif %}
+
             {% if restaurant.budget %}
                 <div class="info-item">
                     <span class="info-label">Budget</span>

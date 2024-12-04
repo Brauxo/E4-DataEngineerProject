@@ -207,6 +207,13 @@ nav {
     color: black;
 }
 
+.excep {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 25px;
+    color: red;
+}
+
 /* Slider Note Minimale */
 .min_rating {
     height: 8px;

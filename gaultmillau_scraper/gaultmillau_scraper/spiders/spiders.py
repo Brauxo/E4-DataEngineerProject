@@ -39,7 +39,12 @@ class GaultMillauSpider(scrapy.Spider):
 
             # Cuisine
             cuisine = restaurant.css('.column2.roundedText.positonedManual::text').get()
-            item['cuisine'] = cuisine.strip() if cuisine else None
+            if cuisine:
+                cuisines = [c.strip() for c in cuisine.split('|') if
+                            c.strip()]
+                item['cuisine'] = cuisines
+            else:
+                item['cuisine'] = None
 
             # Budget
             budget = restaurant.xpath(
