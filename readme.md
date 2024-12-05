@@ -73,11 +73,9 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 
 ## 4 - Les différentes pages
 
-- **Page d'accueil**
-
-![home](img/home.gif)
-
 ### Page d'accueil du site
+
+![home](img/home2.gif)
 
 La page d'accueil du site présente un design élégant et intuitif, permettant aux utilisateurs de rechercher et découvrir des restaurants selon leurs préférences. Voici les principales caractéristiques de cette page :
 
@@ -101,6 +99,9 @@ La page d'accueil du site présente un design élégant et intuitif, permettant 
 
 #### Footer informatif
 - Le footer inclut des liens supplémentaires, des informations sur les auteurs du projet et un design sobre pour clôturer la page.
+
+### Page exploration restaurant
+
 
 
 ![img.png](img/img.png)
