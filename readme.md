@@ -19,6 +19,9 @@ Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearc
 3. [Lancer le projet](#3---Lancer-le-projet)
 4. [Les différentes pages](#4---Les-differentes-pages)
 
+## Guide du Developpeur
+1. [Aperçu global](#1---Aperçu-global)
+
 # Guide de l'utilisateur
 
 ## 1 - Prérequis d'installation
@@ -73,9 +76,11 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 
 ## 4 - Les différentes pages
 
+<div align="center">
 ### Page d'accueil du site
+</div>
 
-![home](img/home2.gif)
+![home](img/home.gif)
 
 La page d'accueil du site présente un design élégant et intuitif, permettant aux utilisateurs de rechercher et découvrir des restaurants selon leurs préférences. Voici les principales caractéristiques de cette page :
 
@@ -100,8 +105,27 @@ La page d'accueil du site présente un design élégant et intuitif, permettant 
 #### Footer informatif
 - Le footer inclut des liens supplémentaires, des informations sur les auteurs du projet et un design sobre pour clôturer la page.
 
+<div align="center">
 ### Page exploration restaurant
+</div>
 
+<div align="center">
+### Page d'analyse
+</div>
 
+<div align="center">
+### Page a propos de nous
+</div>
+
+![home](img/about.gif)
+La page "À propos de nous" présente les contributeurs principaux du projet avec leurs profils respectifs et les outils utilisés dans le développement du site.
+
+- **Présentation des contributeurs** : Chaque contributeur est affiché avec une photo, un descriptif de son parcours, et ses domaines d'expertise.
+- **Contact direct** : Les adresses email des contributeurs sont fournies pour toute communication.
+- **Technologies utilisées** : Une section en bas met en avant les principaux outils et technologies comme Elasticsearch, Docker, Scrapy, GitHub, et Flask.
+
+<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
+
+## 1 - Aperçu global
 
 ![img.png](img/img.png)
