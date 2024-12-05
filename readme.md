@@ -72,8 +72,7 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 ## 4 - Les différentes pages
 
-
-
+![Vidéo sans titre](https://github.com/user-attachments/assets/b869f00b-365d-4e50-840f-04b75b295f02)
 
 
 ![img.png](img.png)
