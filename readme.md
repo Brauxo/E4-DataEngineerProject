@@ -19,8 +19,15 @@ Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearc
 3. [Lancer le projet](#3---Lancer-le-projet)
 4. [Les différentes pages](#4---Les-differentes-pages)
 
-## Guide du Developpeur
-1. [Aperçu global](#1---Aperçu-global)
+## Guide du Développeur
+1. [Aperçu global du projet](#1---Aperçu-global-du-projet)
+2. [Scraping](#2---Scraping)
+3. [API Web](#3---API-Web)
+4. [Architecture et technologies utilisées](#4---Architecture-et-technologies-utilisées)
+
+## Pour aller plus loin
+1. [Idées d'améliorations](#1---Idées-daméliorations)
+2. [Défis rencontrés](#2---Défis-rencontrés)
 
 # Guide de l'utilisateur
 
@@ -77,7 +84,7 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 ## 4 - Les différentes pages
 
 <div align="center">
-### Page d'accueil du site
+<h3>Page d'accueil du site</h3>
 </div>
 
 ![home](img/home.gif)
@@ -106,15 +113,15 @@ La page d'accueil du site présente un design élégant et intuitif, permettant 
 - Le footer inclut des liens supplémentaires, des informations sur les auteurs du projet et un design sobre pour clôturer la page.
 
 <div align="center">
-### Page exploration restaurant
+<h3> Page exploration restaurant </h3>
 </div>
 
 <div align="center">
-### Page d'analyse
+<h3> Page d'analyse </h3>
 </div>
 
 <div align="center">
-### Page a propos de nous
+<h3> Page a propos de nous </h3>
 </div>
 
 ![home](img/about.gif)
@@ -126,6 +133,23 @@ La page "À propos de nous" présente les contributeurs principaux du projet ave
 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
+# Guide du Développeur
 ## 1 - Aperçu global
+## 2 - Scrapping
+## 3 - API Web
+## 4 - Architecture et technologies utilisées
+![img.png](img/img.png) 
+pas a jour
+<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
-![img.png](img/img.png)
+# Pour aller plus loin
+## 1 - Idées d'améliorations
+## 2 - Défis rencontrés
+---
+
+Owen et Elliot
+**Notre recette : un projet bien épicé, une pincée de code, et beaucoup de passion. 🧑‍🍳💻**  
+**Bonne correction et merci pour votre temps ! 😊**
+
+<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
+
