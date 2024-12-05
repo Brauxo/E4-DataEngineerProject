@@ -70,9 +70,37 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 ![image](https://github.com/user-attachments/assets/aa1cdcf7-a114-42f7-8e11-be71561aa07e)
 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
+
 ## 4 - Les différentes pages
 
-![Vidéo sans titre](https://github.com/user-attachments/assets/b869f00b-365d-4e50-840f-04b75b295f02)
+- **Page d'accueil**
+
+![home](img/home.gif)
+
+### Page d'accueil du site
+
+La page d'accueil du site présente un design élégant et intuitif, permettant aux utilisateurs de rechercher et découvrir des restaurants selon leurs préférences. Voici les principales caractéristiques de cette page :
+
+#### Barre de recherche personnalisée
+- Trois menus déroulants pour affiner les critères de recherche :
+  - **Département** : Permet de sélectionner une région géographique.
+  - **Type de cuisine** : Offre des options comme "Français", "Italien", "Japonais", etc.
+  - **Note minimale** : Permet de filtrer les restaurants en fonction de leur score.
+- Un bouton **"Rechercher"** pour effectuer la recherche selon les critères sélectionnés.
+
+#### Navigation rapide par types de cuisine
+- Une section en dessous de la barre de recherche met en avant **6 types de cuisine populaires**.
+- Chaque catégorie est **cliquable** et redirige l'utilisateur vers une page dédiée pour explorer des restaurants spécifiques.
+
+#### Header interactif
+- Un header fixe contenant des liens vers les sections principales du site :
+  - **Les restaurants**
+  - **Analyse**
+  - **À propos de nous**
+- Le header disparaît automatiquement lors du défilement vers le bas pour laisser plus d'espace à l'utilisateur et réapparaît en haut.
+
+#### Footer informatif
+- Le footer inclut des liens supplémentaires, des informations sur les auteurs du projet et un design sobre pour clôturer la page.
 
 
-![img.png](img.png)
+![img.png](img/img.png)
