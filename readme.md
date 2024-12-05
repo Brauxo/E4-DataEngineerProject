@@ -147,9 +147,11 @@ pas a jour
 ## 2 - Défis rencontrés
 ---
 
-Owen et Elliot
-**Notre recette : un projet bien épicé, une pincée de code, et beaucoup de passion. 🧑‍🍳💻**  
-**Bonne correction et merci pour votre temps ! 😊**
+**Owen et Elliot**
+
+*Notre recette : un projet bien épicé, une pincée de code, et beaucoup de passion. 🧑‍🍳💻*
+
+*Bonne correction et merci pour votre temps ! 😊*
 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
