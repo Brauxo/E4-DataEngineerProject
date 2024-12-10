@@ -134,18 +134,50 @@ La page "À propos de nous" présente les contributeurs principaux du projet ave
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 # Guide du Développeur
+
 ## 1 - Aperçu global
+Le projet propose une solution intégrée permettant de scrapper les données de restaurants depuis **Gault & Millau**, de les stocker dans **Elasticsearch**, et de les rendre accessibles via une application web construite avec **Flask**. L'architecture repose sur Docker pour assurer un déploiement reproductible.
+
 ## 2 - Scrapping
+Le scrapping utilise **Python** et des bibliothèques telles que **BeautifulSoup** pour analyser les pages HTML et **Requests** pour l’envoi des requêtes. Le processus extrait :
+- Noms des restaurants.
+- Adresses et coordonnées GPS.
+- Spécialités culinaires.
+- Notes.
+
+Les données structurées sont importées dans Elasticsearch en tant qu'index.
+
 ## 3 - API Web
+Le backend, basé sur **Flask**, offre des endpoints pour :
+- Afficher la liste des restaurants.
+- Obtenir des détails spécifiques à un restaurant.
+- Rechercher par mot-clé ou critères (ex. spécialité, localisation).
+
 ## 4 - Architecture et technologies utilisées
+- **Backend** : Python, Flask.
+- **Scraping** : BeautifulSoup, Requests.
+- **Base de données** : Elasticsearch.
+- **Frontend** : HTML/CSS/JS.
+- **Déploiement** : Docker Compose.
+
 ![img.png](img/img.png) 
-pas a jour
-<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
+
+---
 
 # Pour aller plus loin
+
 ## 1 - Idées d'améliorations
+- Ajouter des **filtres dynamiques** (par budget, distance).
+- Intégrer une **interface mobile-friendly** ou créer une app mobile.
+- Mettre en place une **API REST avancée** pour d’autres types de clients (apps tierces).
+
 ## 2 - Défis rencontrés
----
+- Contournement des **limitations des sites web** (CAPTCHA, restrictions IP).
+- Optimisation des requêtes Elasticsearch.
+- Assurer une **compatibilité front-end** entre navigateurs.
+
+
+
 
 **Owen et Elliot**
 
