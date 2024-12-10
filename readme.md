@@ -162,7 +162,7 @@ Le backend, basé sur **Flask**, offre des endpoints pour :
 
 ![img.png](img/img.png) 
 
----
+<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 # Pour aller plus loin
 
@@ -176,8 +176,7 @@ Le backend, basé sur **Flask**, offre des endpoints pour :
 - Optimisation des requêtes Elasticsearch.
 - Assurer une **compatibilité front-end** entre navigateurs.
 
-
-
+<p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 **Owen et Elliot**
 
