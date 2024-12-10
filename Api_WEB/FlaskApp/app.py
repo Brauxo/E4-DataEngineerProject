@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from elastic_tools import get_connection
+import pandas as pd
 
 app = Flask(__name__)
 #es = Elasticsearch("http://elasticsearch:9200")
@@ -109,7 +110,33 @@ def restaurant():
 
 @app.route("/analyse")
 def analyse():
-    return render_template('analyse.html')
+    es = get_connection()
+    index_name = "gaultmillau_restaurants"
+
+    # Effectuer une recherche Elasticsearch pour extraire des données nécessaires
+    response = es.search(index=index_name, body={"query": {"match_all": {}}}, size=1000)
+    hits = [hit['_source'] for hit in response['hits']['hits']]
+
+    # Préparer des données pour les visualisations
+    data = pd.DataFrame(hits)
+
+    # Nettoyer les données : Exemple pour les départements
+    data['department'] = data['address'].str[:2]
+    data = data[data['department'].str.isdigit()]  # Filtrer les départements valides
+
+    # Compter les restaurants par département
+    dept_counts = data['department'].value_counts().reset_index()
+    dept_counts.columns = ['department', 'count']
+
+    # Préparer les données pour les graphiques
+    graph_data = {
+        'dept_counts': dept_counts.to_dict(orient='records'),
+        'rating_histogram': data['rating'].dropna().tolist(),
+        'cuisine_distribution': data['cuisine'].explode().value_counts().reset_index().to_dict(orient='records')
+    }
+
+    # Passer les données au template
+    return render_template('analyse.html', graph_data=graph_data)
 
 if __name__ == "__main__":
     app.run(debug=True)

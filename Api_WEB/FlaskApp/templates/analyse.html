@@ -8,6 +8,7 @@
     <link href="{{ url_for('static', filename='css/analyse.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <header class="other-header py-3">
@@ -24,16 +25,15 @@
     </header>
 
     <div class="test-division">
-    <h3>Bloc de Texte de Test</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
-    </p>
-    <p>
-        Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
-    </p>
-    <p>
-        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.
-    </p>
+        <h3>Analyse des Données</h3>
+        <p>Voici des visualisations basées sur les données des restaurants.</p>
+    </div>
+
+    <!-- Graphiques -->
+    <div class="container">
+        <div id="department-chart" class="my-5"></div>
+        <div id="rating-histogram" class="my-5"></div>
+        <div id="cuisine-chart" class="my-5"></div>
     </div>
 
     <!-- Footer -->
@@ -47,7 +47,7 @@
                             Accueil
                         </a>
                         <a href="{{ url_for('restaurant') }}" class="text-white text-decoration-none">
-                            <i class="bi bi-graph-up me-1  "></i>
+                            <i class="bi bi-graph-up me-1"></i>
                             Restaurants
                         </a>
                         <a href="{{ url_for('aboutus') }}" class="text-white text-decoration-none">
@@ -62,6 +62,42 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Encapsuler chaque bloc dans une fonction anonyme pour éviter les conflits
+
+        // Graphique des départements
+        (() => {
+            const deptCounts = {{ graph_data.dept_counts|tojson }};
+            const departmentData = {
+                x: deptCounts.map(d => d.department),
+                y: deptCounts.map(d => d.count),
+                type: 'bar'
+            };
+            Plotly.newPlot('department-chart', [departmentData], {title: 'Restaurants par Département'});
+        })();
+
+        // Histogramme des notes
+        (() => {
+            const ratings = {{ graph_data.rating_histogram|tojson }};
+            const ratingData = {
+                x: ratings,
+                type: 'histogram'
+            };
+            Plotly.newPlot('rating-histogram', [ratingData], {title: 'Histogramme des Notes'});
+        })();
+
+        // Répartition des cuisines
+        (() => {
+            const cuisines = {{ graph_data.cuisine_distribution|tojson }};
+            const cuisineData = {
+                labels: cuisines.map(c => c.index),
+                values: cuisines.map(c => c.count),
+                type: 'pie'
+            };
+            Plotly.newPlot('cuisine-chart', [cuisineData], {title: 'Répartition des Cuisines'});
+        })();
+    </script>
 
 </body>
 </html>
