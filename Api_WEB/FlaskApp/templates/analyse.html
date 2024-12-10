@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Leaflet CSS & JS pour la carte -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- GeoJSON pour la carte -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-choropleth"></script>
 </head>
 <body>
     <header class="other-header py-3">
@@ -36,6 +43,15 @@
         <div id="cuisine-chart" class="my-5"></div>
     </div>
 
+    <div class="test-division">
+        <h3>Carte de la densité des restaurants en France.</h3>
+    </div>
+
+    <!-- Carte des départements -->
+    <div class="container">
+        <div id="france-map" class="my-5" style="height: 500px;"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer mt-auto py-4 bg-dark text-white">
         <div class="container">
@@ -57,14 +73,55 @@
                     </div>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Copyrigth©2024 Owen BRAUX & Elliot CAMBIER - DSIA-4201C : DataEngineering</p>
+                    <p class="mb-0">Copyright©2024 Owen BRAUX & Elliot CAMBIER - DSIA-4201C : DataEngineering</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Encapsuler chaque bloc dans une fonction anonyme pour éviter les conflits
+        // Créer la carte des départements
+        const map = L.map('france-map').setView([46.603354, 1.888334], 6); // Centrer sur la France
+
+        // Ajouter une couche de carte avec le style "light"
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Charger et afficher les départements depuis le fichier GeoJSON
+        fetch("{{ url_for('static', filename='departments.geojson') }}")
+            .then(response => response.json())
+            .then(geoData => {
+                L.geoJSON(geoData, {
+                    style: function (feature) {
+                        return {
+                            fillColor: getColor(feature.properties.restaurant_count),  // Utilisation de restaurant_count
+                            weight: 1,
+                            opacity: 1,
+                            color: 'white',
+                            dashArray: '3',
+                            fillOpacity: 0.7
+                        };
+                    },
+                    onEachFeature: function (feature, layer) {
+                        layer.bindPopup("Département: " + feature.properties.nom + "<br>Restaurants: " + feature.properties.restaurant_count);
+                    }
+                }).addTo(map);
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement des données GeoJSON:', error);
+            });
+
+        // Fonction pour colorier les départements en fonction du nombre de restaurants
+        const getColor = (count) => {
+            return count > 100 ? '#800026' :
+                   count > 50  ? '#BD0026' :
+                   count > 20  ? '#E31A1C' :
+                   count > 10  ? '#FC4E2A' :
+                   count > 5   ? '#FD8D3C' :
+                   count > 0   ? '#FEB24C' :
+                                 '#FFEDA0';
+        };
 
         // Graphique des départements
         (() => {

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from elastic_tools import get_connection
 import pandas as pd
+import json
 
 app = Flask(__name__)
 #es = Elasticsearch("http://elasticsearch:9200")
@@ -110,6 +111,7 @@ def restaurant():
 
 @app.route("/analyse")
 def analyse():
+    # Connexion à Elasticsearch
     es = get_connection()
     index_name = "gaultmillau_restaurants"
 
@@ -117,7 +119,7 @@ def analyse():
     response = es.search(index=index_name, body={"query": {"match_all": {}}}, size=1000)
     hits = [hit['_source'] for hit in response['hits']['hits']]
 
-    # Préparer des données pour les visualisations
+    # Convertir les résultats en DataFrame pandas
     data = pd.DataFrame(hits)
 
     # Nettoyer les données : Exemple pour les départements
@@ -128,15 +130,51 @@ def analyse():
     dept_counts = data['department'].value_counts().reset_index()
     dept_counts.columns = ['department', 'count']
 
-    # Préparer les données pour les graphiques
+    # Créer un dictionnaire GeoJSON des départements avec le nombre de restaurants
+    geojson_data = create_geojson(dept_counts)
+
+    # Préparer les autres données pour les graphiques
     graph_data = {
         'dept_counts': dept_counts.to_dict(orient='records'),
         'rating_histogram': data['rating'].dropna().tolist(),
-        'cuisine_distribution': data['cuisine'].explode().value_counts().reset_index().to_dict(orient='records')
+        'cuisine_distribution': data['cuisine'].explode().value_counts().reset_index().to_dict(orient='records'),
+        'geojson_data': geojson_data  # Passer les données GeoJSON pour la carte
     }
 
     # Passer les données au template
     return render_template('analyse.html', graph_data=graph_data)
+
+def create_geojson(dept_counts):
+    # Créer un template de base pour les départements (exemple simple)
+    geojson = {
+        "type": "FeatureCollection",
+        "features": []
+    }
+
+    # Vous devez avoir une liste des départements français avec leurs coordonnées géographiques
+    # Vous pouvez charger cette information depuis un fichier GeoJSON ou une API.
+    
+    # Exemple de départements (vous devrez remplacer cela par des données réelles de géométrie)
+    # Chaque département doit être associé à un "department" et avoir un nombre de restaurants
+    for _, row in dept_counts.iterrows():
+        department = row['department']
+        restaurant_count = row['count']
+        
+        # Exemple simple de structure GeoJSON, remplacez "geometry" par la vraie géométrie des départements
+        feature = {
+            "type": "Feature",
+            "properties": {
+                "nom": department,
+                "restaurant_count": restaurant_count
+            },
+            "geometry": {
+                "type": "Polygon",  # Ceci est un exemple, chaque département doit avoir sa propre géométrie
+                "coordinates": [[0, 0]]  # Remplacer par les coordonnées réelles des départements
+            }
+        }
+        geojson["features"].append(feature)
+
+    return geojson
 
 if __name__ == "__main__":
     app.run(debug=True)
