@@ -28,6 +28,8 @@ Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearc
 ## Pour aller plus loin
 1. [Idées d'améliorations](#1---Idées-daméliorations)
 2. [Défis rencontrés](#2---Défis-rencontrés)
+3. [Bugs connus](#3---Bugs-connus)
+
 
 # Guide de l'utilisateur
 
@@ -175,6 +177,12 @@ Le backend, basé sur **Flask**, offre des endpoints pour :
 - Contournement des **limitations des sites web** (CAPTCHA, restrictions IP).
 - Optimisation des requêtes Elasticsearch.
 - Assurer une **compatibilité front-end** entre navigateurs.
+
+## 3 - Bugs connus
+- [en partie résolu] Il se peut qu'une des pages du site de gault et millau soit down et que le scrapping s'arrête plus tôt. La page est donc skip mais reste manquante jusqu'à que les créateurs du site répare le problème
+- De temps en temps, suite au scrapping, le graphique réprésentant les notes dans la partie analyse est totalement incohérent (affichant 400 notes à 12 et 12.5 et rien d'autres)
+
+Si vous rencontrez d'autres bugs n'hesitez pas à nous contacter. 
 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
