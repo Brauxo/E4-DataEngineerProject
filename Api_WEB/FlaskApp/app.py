@@ -124,7 +124,7 @@ def analyse():
 
     # Nettoyer les données : Exemple pour les départements
     data['department'] = data['address'].str[:2]
-    data = data[data['department'].str.isdigit()]  # Filtrer les départements valides
+    data = data[data['department'].fillna('0').str.isdigit()]   # Filtrer les départements valides
 
     # Compter les restaurants par département
     dept_counts = data['department'].value_counts().reset_index()
