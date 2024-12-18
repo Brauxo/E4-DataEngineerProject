@@ -159,6 +159,22 @@ N'ayant jamais utilisé **Flask** auparavant, nous avons suivi des tutoriels pou
 
 L'un d'entre nous avait déjà acquis des compétences en **HTML**, **CSS** et **JavaScript** lors d'un stage d'un mois effectué pendant l'été, ce qui a facilité le développement de la partie frontend de notre projet.
 
+Flask repose sur le principe des **routes**, qui définissent les points d'accès à notre application web. Le fichier principal, `app.py`, joue le rôle de cœur de l'application et redirige les requêtes vers des pages spécifiques, comme `restaurant.html` dans notre cas.
+
+Par exemple, dans la capture ci-dessous, on voit une route définie avec le décorateur `@app.route("/restaurant")`. Cette route est chargée de :
+
+1. **Récupérer les paramètres** de la requête (comme `min_rating`, `department` et `cuisine`).
+2. **Construire une requête Elasticsearch** pour filtrer les restaurants.
+3. **Envoyer les données filtrées** à la page HTML via `render_template()`.
+
+La page **HTML**, ici `restaurant.html`, reçoit les données renvoyées par Flask (comme la liste des restaurants, les départements uniques et les types de cuisines) pour les afficher dynamiquement sur le frontend.
+
+Ce découpage entre le fichier principal `app.py` (backend) et les fichiers **HTML** (frontend) permet une architecture claire et modulaire. Chaque route dans Flask peut gérer des logiques spécifiques et renvoyer des résultats adaptés à la page correspondante.
+
+<div align="center">
+<img src="img/code.png" width="55%"/>
+</div>
+
 ## 4 - Architecture et technologies utilisées
 - **Backend** : Python, Flask.
 - **Scraping** : Scrapy
