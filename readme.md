@@ -138,16 +138,16 @@ La page "À propos de nous" présente les contributeurs principaux du projet ave
 # Guide du Développeur
 
 ## 1 - Aperçu global
-Le projet propose une solution intégrée permettant de scrapper les données de restaurants depuis **Gault & Millau**, de les stocker dans **Elasticsearch**, et de les rendre accessibles via une application web construite avec **Flask**. L'architecture repose sur Docker pour assurer un déploiement reproductible.
+Le projet propose une solution intégrée permettant de scrapper les données de restaurants depuis **Gault & Millau**, de les stocker dans **MongoDb** et **Elasticsearch**, et de les rendre accessibles via une application web construite avec **Flask**. L'architecture repose sur Docker pour assurer un déploiement reproductible.
 
 ## 2 - Scrapping
 Le scrapping utilise **Python** et des bibliothèques telles que **BeautifulSoup** pour analyser les pages HTML et **Requests** pour l’envoi des requêtes. Le processus extrait :
 - Noms des restaurants.
-- Adresses et coordonnées GPS.
+- Adresses.
 - Spécialités culinaires.
 - Notes.
+- Les chefs
 
-Les données structurées sont importées dans Elasticsearch en tant qu'index.
 
 ## 3 - API Web
 Le backend, basé sur **Flask**, offre des endpoints pour :
@@ -155,15 +155,33 @@ Le backend, basé sur **Flask**, offre des endpoints pour :
 - Obtenir des détails spécifiques à un restaurant.
 - Rechercher par mot-clé ou critères (ex. spécialité, localisation).
 
+N'ayant jamais utilisé **Flask** auparavant, nous avons suivi des tutoriels pour apprendre les bases et développer notre API, notamment la série de cours disponible ici : [Tutoriel Flask sur YouTube](https://www.youtube.com/watch?v=o3bCVqF9gI0&list=PL7yh-TELLS1EyAye_UMnlsTGKxg8uatkM).
+
+L'un d'entre nous avait déjà acquis des compétences en **HTML**, **CSS** et **JavaScript** lors d'un stage d'un mois effectué pendant l'été, ce qui a facilité le développement de la partie frontend de notre projet.
+
 ## 4 - Architecture et technologies utilisées
 - **Backend** : Python, Flask.
-- **Scraping** : BeautifulSoup, Requests.
-- **Base de données** : Elasticsearch.
+- **Scraping** : Scrapy
+- **Base de données** : Elasticsearch, MongoDB.
 - **Frontend** : HTML/CSS/JS.
 - **Déploiement** : Docker Compose.
 
-![img.png](img/img.png) 
+**Pourquoi avons-nous choisit ces technologies ?** 
 
+Nous avons opté pour **MongoDB** et **Elasticsearch** en raison de leur flexibilité dans la gestion des objets et de leur simplicité d'utilisation. Ces bases de données permettent une intégration rapide des données tout en offrant des performances élevées pour la recherche et l'analyse.
+
+Concernant le backend, nous avons choisi **Flask** afin d'explorer une alternative à Dash, utilisé dans un précédent projet lors de la période 1. Flask s'est révélé être un choix pertinent grâce à sa prise en main facile, sa légèreté et ses nombreuses fonctionnalités qui facilitent le développement d'API et d'applications web.
+
+Enfin, l'utilisation de **Docker Compose** permet de simplifier le déploiement et l'orchestration des différents composants de notre architecture, assurant ainsi une solution cohérente et facilement réplicable.
+
+#### Architecture simplifiée de notre application web
+![archi.png](img/archi.png)
+
+#### Architecture global du projet
+
+<div align="center">
+<img src="img/archicomplet.png" width="55%"/>
+</div>
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 # Pour aller plus loin

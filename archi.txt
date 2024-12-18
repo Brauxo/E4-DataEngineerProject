@@ -1,11 +1,12 @@
 C:.(Data-Engineer-Project-gaultmillau)
 |   docker-compose.yml
-|   docker-compose2.yml
+|   readme.md
 |
 +---Api_WEB
 |   |   Dockerfile
 |   |   requirements.txt
 |   |   app.py
+|   |   elastic_tools.py
 |   |
 |   \---FlaskApp
 |       +---static
@@ -37,3 +38,48 @@ C:.(Data-Engineer-Project-gaultmillau)
                 settings.py
         
 
+
+C:.(Data-Engineer-Project-gaultmillau)
+|   docker-compose.yml
+|   readme.md
+|
++---Api_WEB
+|   |   Dockerfile
+|   |   requirements.txt
+|   |   app.py
+|   |   elastic_tools.py
+|   |
+|   +---FlaskApp
+|   |   +---static
+|   |   |   +---assets
+|   |   |   |       departements.geojson
+|   |   |   \---css
+|   |   |           aboutus.css
+|   |   |           analyse.css
+|   |   |           home.css
+|   |   |           restaurant.css
+|   |   |
+|   |   \---templates
+|   |           aboutus.html
+|   |           analyse.html
+|   |           home_page.html
+|   |           restaurant.html
+|   |
+|   |   __init__.py
+|
++---gaultmillau_scraper
+|   |   Dockerfile
+|   |   requirements.txt
+|   |   scrapy.cfg
+|   |
+|   +---gaultmillau_scraper
+|   |   +---spiders
+|   |   |       __init__.py
+|   |   |       spiders.py
+|   |   |
+|   |   |   items.py
+|   |   |   middlewares.py
+|   |   |   pipelines.py
+|   |   |   settings.py
+|
++---img
