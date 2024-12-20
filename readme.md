@@ -118,6 +118,27 @@ La page d'accueil du site présente un design élégant et intuitif, permettant 
 <h3> Page exploration restaurant </h3>
 </div>
 
+![resto.gif](img/resto.gif)
+La page est dédiée à la recherche et à l'exploration de restaurants. Les principaux composants de la page :
+
+#### Filtres de Recherche de Restaurants
+Les utilisateurs peuvent filtrer les restaurants selon plusieurs critères :
+- **Curseur de Note** : Un curseur permet de définir une note minimale pour les restaurants recherchés.
+- **Menu Déroulant Département** : Un menu déroulant permet aux utilisateurs de sélectionner un département spécifique en France pour affiner la recherche.
+- **Cases à Cocher Types de Cuisine** : Un menu déroulant avec des cases à cocher permet aux utilisateurs de sélectionner un ou plusieurs types de cuisine (par exemple, Français, Italien, Japonais).
+- **Bouton de Recherche** : Un bouton est disponible pour lancer la recherche selon les filtres sélectionnés.
+- **Affichage des Résultats** : La page affiche le nombre de restaurants correspondant aux critères et propose un bouton pour réinitialiser les filtres.
+
+#### Liste des Restaurants
+Les restaurants sont affichés sous forme de liste, chacun comprenant :
+- **Image** : Une image du restaurant avec sa catégorie.
+- **Nom et Note** : Le nom et la note du restaurant.
+- **Informations Supplémentaires** : Des détails tels que le nom du chef, le type(s) de cuisine, le budget et l'adresse.
+
+#### Pagination
+La liste des restaurants est paginée, et les utilisateurs peuvent naviguer entre plusieurs pages de résultats grâce aux boutons "précédent" et "suivant", ainsi qu'aux liens des numéros de pages.
+
+
 <div align="center">
 <h3> Page d'analyse </h3>
 </div>
@@ -196,7 +217,7 @@ Enfin, l'utilisation de **Docker Compose** permet de simplifier le déploiement 
 #### Architecture global du projet
 
 <div align="center">
-<img src="img/archicomplet.png" width="55%"/>
+<img src="img/archicomplet.png" width="45%"/>
 </div>
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
