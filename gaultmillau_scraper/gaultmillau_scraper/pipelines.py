@@ -1,3 +1,9 @@
+"""
+Authors: Elliot CAMBIER, Owen BRAUX
+Created: January 2025
+⚠ For personal and educational use only ⚠
+"""
+
 import pymongo
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk

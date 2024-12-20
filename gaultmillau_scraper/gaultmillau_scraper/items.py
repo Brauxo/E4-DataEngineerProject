@@ -1,3 +1,9 @@
+"""
+Authors: Elliot CAMBIER, Owen BRAUX
+Created: January 2025
+⚠ For personal and educational use only ⚠
+"""
+
 import scrapy
 
 class ArticleItem(scrapy.Item):

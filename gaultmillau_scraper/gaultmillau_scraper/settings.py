@@ -1,3 +1,9 @@
+"""
+Authors: Elliot CAMBIER, Owen BRAUX
+Created: January 2025
+⚠ For personal and educational use only ⚠
+"""
+
 BOT_NAME = "gaultmillau_scraper"
 
 SPIDER_MODULES = ["gaultmillau_scraper.spiders"]

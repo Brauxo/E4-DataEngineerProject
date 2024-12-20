@@ -1,7 +1,16 @@
+"""
+Authors: Elliot CAMBIER, Owen BRAUX
+Created: January 2025
+⚠ For personal and educational use only ⚠
+"""
+
 import scrapy
 from ..items import ArticleItem
 
 class GaultMillauSpider(scrapy.Spider):
+    """
+
+    """
     name = "gaultmillau"
     allowed_domains = ["fr.gaultmillau.com"]
 

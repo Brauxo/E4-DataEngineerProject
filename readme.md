@@ -162,13 +162,20 @@ La page "À propos de nous" présente les contributeurs principaux du projet ave
 Le projet propose une solution intégrée permettant de scrapper les données de restaurants depuis **Gault & Millau**, de les stocker dans **MongoDb** et **Elasticsearch**, et de les rendre accessibles via une application web construite avec **Flask**. L'architecture repose sur Docker pour assurer un déploiement reproductible.
 
 ## 2 - Scrapping
-Le scrapping utilise **Python** et des bibliothèques telles que **BeautifulSoup** pour analyser les pages HTML et **Requests** pour l’envoi des requêtes. Le processus extrait :
-- Noms des restaurants.
-- Adresses.
-- Spécialités culinaires.
-- Notes.
-- Les chefs
+Le projet utilise **Scrapy** pour effectuer le scraping des données disponibles sur le site Gault&Millau.
 
+Il fonctionne de la manière suivante : 
+1. Le scraper navigue sur les pages du site Gault&Millau en suivant une logique de pagination.
+2. Il extrait les informations pertinentes pour chaque restaurant, telles que :
+   - Nom,
+   - Adresse,
+   - Chef,
+   - Spécialité culinaire,
+   - Note (ou catégorie spéciale comme "Membre de l'Académie Gault&Millau"),
+   - Budget,
+   - URL du restaurant,
+   - Photo.
+3. Les données extraites sont stockées sous forme d'objets définis par le fichier `items.py`.
 
 ## 3 - API Web
 Le backend, basé sur **Flask**, offre des endpoints pour :
@@ -215,10 +222,20 @@ Enfin, l'utilisation de **Docker Compose** permet de simplifier le déploiement 
 ![archi.png](img/archi.png)
 
 #### Architecture global du projet
+Nous avons segmenté notre code en plusieurs dossiers afin de le rendre plus facilement compréhensible. Deux dossiers principaux structurent notre projet : 
+
+1. **`Api_WEB`** : Ce dossier gère tout ce qui concerne l'application Flask.
+2. **`gaultmillau_scraper`** : Ce dossier s'occupe de l'ensemble de la phase de scraping effectuée en amont.
+
+Avantages de cette Architecture : 
+- **Modularité** : Lors du développement, il n'est pas nécessaire de pousser l'intégralité du projet sur le dépôt, mais uniquement les branches modifiées, ce qui simplifie la gestion des versions.
+- **Lisibilité** : La séparation claire des responsabilités facilite la compréhension et le travail collaboratif sur le projet.
+
 
 <div align="center">
 <img src="img/archicomplet.png" width="45%"/>
 </div>
+
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
 # Pour aller plus loin
