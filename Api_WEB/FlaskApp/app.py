@@ -159,11 +159,11 @@ def analyse():
     es = get_connection()
     index_name = "gaultmillau_restaurants"
 
-    # Récupérer les paramètres de filtre, si fournis
+    # Récupére les paramètres de filtre, si fournis
     department = request.args.get('department', None)
     selected_cuisines = request.args.getlist('cuisine')  # Liste des types de cuisine sélectionnés
 
-    # Fonction pour récupérer tous les restaurants
+    # Recupere tous les restaurants
     def get_all_restaurants(es, index_name, size=1000):
         all_hits = []
         from_index = 0
@@ -187,60 +187,48 @@ def analyse():
 
         return all_hits
 
-    # Récupérer tous les restaurants
     hits = get_all_restaurants(es, index_name)
 
-    # Convertir en DataFrame pandas pour faciliter la manipulation
+    # Convertie en DF
     data = pd.DataFrame(hits)
 
-    # Appliquer les filtres si spécifiés
     if department:
         data = data[data['address'].str.startswith(department)]
 
     if selected_cuisines:
-        # Filtrer selon les cuisines sélectionnées (en supposant que 'cuisine' soit une liste dans vos données)
         data = data[data['cuisine'].apply(lambda x: any(cuisine in x for cuisine in selected_cuisines))]
 
-    # Nettoyage des données (comme pour le département)
+
     data['department'] = data['address'].str[:2]
     data = data[data['department'].fillna('0').str.isdigit()]  # Filtrer les départements valides
 
-    # Ajouter le nom du département
     data['department_name'] = data['department'].map(DEPARTMENTS)
 
-    # Vérification et ajustement des notes
     data['rating'] = data['rating'].apply(lambda x: float(x) if isinstance(x, (int, float)) else None)
     data = data[data['rating'].notna()]  # Supprimer les valeurs manquantes
     data['rating'] = data['rating'].apply(lambda x: max(5, min(20, x)))  # Assurez-vous que les notes sont entre 5 et 20
 
-    # Compter les restaurants par département
     dept_counts = data['department_name'].value_counts().reset_index()
     dept_counts.columns = ['department', 'count']
 
-    # Créer le GeoJSON pour la carte
     geojson_data = create_geojson(dept_counts)
 
-    # Sauvegarder le fichier GeoJSON dans le dossier statique
     geojson_path = "FlaskApp/static/geojson_enriched.json"
     with open(geojson_path, 'w') as geojson_file:
         json.dump(geojson_data, geojson_file)
 
-    # Préparer les autres données pour les graphiques
     graph_data = {
         'dept_counts': dept_counts.to_dict(orient='records'),
         'geojson_data': geojson_data,  
         'geojson_path': geojson_path
     }
 
-    # Ajouter des données pour les histogrammes
     rating_histogram = data['rating'].dropna().tolist()
     cuisine_distribution = data['cuisine'].explode().value_counts().reset_index().to_dict(orient='records')
 
-    # Ajouter aux données du graphique
     graph_data['rating_histogram'] = rating_histogram
     graph_data['cuisine_distribution'] = cuisine_distribution
 
-    # Passer les données au template
     return render_template('analyse.html', graph_data=graph_data)
 
 
