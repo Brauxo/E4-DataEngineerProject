@@ -89,7 +89,7 @@
         }).addTo(map);
 
         // Charger et afficher les départements depuis le fichier GeoJSON
-        fetch("{{ url_for('static', filename='departments.geojson') }}")
+        fetch("geojson_enriched.json")
             .then(response => response.json())
             .then(geoData => {
                 L.geoJSON(geoData, {
