@@ -10,6 +10,8 @@
 Ce projet vise à extraire des données depuis le site 'gaultmillau.com', les stocker dans une base de données Elasticsearch, et les rendre consultables à travers une application Web créée avec Flask.
 Pour offrir une expérience utilisateur fluide, nous avons utilisé Elasticsearch pour optimiser les capacités de recherche et conçu une interface interactive en combinant CSS et JavaScript. Le projet s’appuie sur Docker pour simplifier le déploiement, automatiser l’exécution des différentes étapes (scraping, stockage, service Web) et garantir une reproductibilité optimale sur différents environnements.
 
+La convention de code PEP8 a été utilisée afin de construire un code clair et des commentaires explicites. [En savoir plus sur PEP8](https://peps.python.org/pep-0008/)
+
 <a id="readme-top"></a>
 # Sommaire
 

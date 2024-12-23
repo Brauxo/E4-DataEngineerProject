@@ -9,19 +9,25 @@ from ..items import ArticleItem
 
 class GaultMillauSpider(scrapy.Spider):
     """
-
+    Spider Scrapy pour scraper les informations des restaurants depuis le site Gault&Millau.
     """
     name = "gaultmillau"
     allowed_domains = ["fr.gaultmillau.com"]
 
-    # URL de base pour la pagination
+    # URL 
     start_urls = ["https://fr.gaultmillau.com/fr/search/restaurant"]
 
     def parse(self, response):
-        # Sélectionner chaque bloc de restaurant
+        """
+        Fonction principale de parsing :
+        - Scrape les informations des restaurants sur chaque page. (nom,url du restau,adresse,chef,type de cuisine,budget,la note, la categorie et la photo)
+        - Gère la pagination.
+        
+        :param response: Réponse HTML renvoyée par Scrapy pour la page actuelle.
+        """
         restaurants = response.css('.BaseCard.RestaurantCard')
 
-        # Si aucune carte de restaurant n'est trouvée, arrêter le crawling
+
         if not restaurants:
             self.logger.info("Aucun restaurant trouvé, fin de la pagination.")
             return
@@ -29,24 +35,24 @@ class GaultMillauSpider(scrapy.Spider):
         for restaurant in restaurants:
             item = ArticleItem()
 
-            # Nom du restaurant
+
             name = restaurant.css('h3::text').get()
             item['name'] = name.strip() if name else None
 
-            # URL du restaurant
+
             url = restaurant.css('a.stretched-link::attr(href)').get()
             item['url'] = response.urljoin(url) if url else None
 
-            # Adresse
+
             address = restaurant.css('.column2.fw-bold::text').get()
             item['address'] = address.strip() if address else None
 
-            # Chef
+
             chef = restaurant.xpath(
                 './/span[contains(text(), "Chef")]/following-sibling::span[@class="column2"]/text()').get()
             item['chef'] = chef.strip() if chef else None
 
-            # Cuisine
+
             cuisine = restaurant.css('.column2.roundedText.positonedManual::text').get()
             if cuisine:
                 cuisines = [c.strip() for c in cuisine.split('|') if
@@ -55,7 +61,7 @@ class GaultMillauSpider(scrapy.Spider):
             else:
                 item['cuisine'] = None
 
-            # Budget
+
             budget = restaurant.xpath(
                 './/span[contains(text(), "Budget")]/following-sibling::span[@class="column2"]/text()').get()
             item['budget'] = budget.strip() if budget else None
@@ -74,11 +80,11 @@ class GaultMillauSpider(scrapy.Spider):
                 except ValueError:
                     item['rating'] = None
 
-            # Catégorie
+
             category = restaurant.css('.ResumeSelection .row1::text').get()
             item['category'] = category.strip() if category else None
 
-            # Photo
+
             photo = restaurant.css('picture img::attr(src)').get()
             item['photo'] = photo.strip() if photo else None
 
@@ -93,5 +99,5 @@ class GaultMillauSpider(scrapy.Spider):
 
         next_url = f"https://fr.gaultmillau.com/fr/search/restaurant/{next_page}#search"
 
-        # Passer à la page suivante
+        # Passe à la page suivante.
         yield scrapy.Request(next_url, callback=self.parse)

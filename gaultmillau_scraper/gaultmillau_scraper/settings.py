@@ -32,7 +32,7 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 
-# Add MongoDB specific settings if necessary
+#les settings de mongoDB
 MONGO_URI = 'mongodb://localhost:27017'
 MONGO_DATABASE = 'scrapy_articles'
 

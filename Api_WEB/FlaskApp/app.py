@@ -1,33 +1,47 @@
+"""
+Authors: Elliot CAMBIER, Owen BRAUX
+Created: January 2025
+⚠ For personal and educational use only ⚠
+"""
 from flask import Flask, render_template, request
 from elastic_tools import get_connection
 import pandas as pd
 import json
 
+"""
+L'application Flask principale pour la gestion et l'affichage des données des restaurants GaultMillau.
+"""
 app = Flask(__name__)
 #es = Elasticsearch("http://elasticsearch:9200")
 
 @app.route("/")
 def home():
+    """Affiche la page d'accueil."""
     return render_template('home_page.html')
 
-@app.route("/aboutus")
+@app.route("/aboutus")                                                                          
 def aboutus():
+    """Affiche la page 'À propos de nous'."""
     return render_template('aboutus.html')
 
 @app.route("/restaurant")
 def restaurant():
+    """
+    Gère la recherche et la page des restaurants dans Elasticsearch
+    avec des filtres sur la note minimale, le département et la cuisine.
+    """
     es = get_connection()
     index_name = "gaultmillau_restaurants"
 
-    # Récupérer les paramètres de la requête
+    # Récupére les paramètres de la requête
     min_rating = request.args.get('min_rating', None)
     department = request.args.get('department', None)
     selected_cuisines = request.args.getlist('cuisine')  # Liste des types de cuisine sélectionnés
 
-    # Récupérer les paramètres de pagination
-    page = int(request.args.get('page', 1))  # Page actuelle (par défaut 1)
+    # Récupére les paramètres de page
+    page = int(request.args.get('page', 1))  # Page actuelle (valeur : 1 de base)
     size = 18  # Nombre de résultats par page
-    start = (page - 1) * size  # Calculer l'offset
+    start = (page - 1) * size  # offsett
 
     # Construire la requête Elasticsearch
     query = {"bool": {"must": []}}
@@ -58,17 +72,17 @@ def restaurant():
             }
         })
 
-    # Exécuter la requête Elasticsearch pour obtenir les restaurants de la page actuelle
+    # Exécute la requête Elasticsearch pour obtenir les restaurants de la page actuelle
     sort = [{"rating": "desc"}]
     print({"query": query, "sort": sort, "from": start, "size": size})  # Affiche la requête
     response = es.search(index=index_name, body={"query": query, "sort": sort}, from_=start, size=size)
 
-    # Utiliser un dictionnaire pour supprimer les doublons
+    # Utilise un dictionnaire pour supprimer les doublons
     restaurants_dict = {doc['_source']['name']: doc['_source'] for doc in response['hits']['hits']}
     restaurants = list(restaurants_dict.values())  # Convertir en liste unique
     total_hits = response['hits']['total']['value']  # Nombre total de résultats
 
-    # Récupérer tous les documents pour les départements et cuisines uniques
+    # Récupére tous les documents pour les départements et cuisines uniques
     scroll_response = es.search(index=index_name, body={"query": {"match_all": {}}}, scroll='2m', size=1000)
     scroll_id = scroll_response['_scroll_id']
     all_addresses = scroll_response['hits']['hits']
@@ -79,7 +93,7 @@ def restaurant():
             break
         all_addresses.extend(scroll_response['hits']['hits'])
 
-    # Extraire les départements uniques
+    # Extrait les départements uniques
     unique_departments = sorted(set(
         [addr['_source']['address'][:2] for addr in all_addresses
          if addr['_source'].get('address') and addr['_source']['address'][:2].isdigit()]
@@ -111,29 +125,32 @@ def restaurant():
 
 @app.route("/analyse")
 def analyse():
-    # Connexion à Elasticsearch
+    """
+    Page d'analyse des données des restaurants de notre elasticSearch pour générer des graphiques et une carte.
+    """
+
     es = get_connection()
     index_name = "gaultmillau_restaurants"
 
-    # Effectuer une recherche Elasticsearch pour extraire des données nécessaires
+    # Effectue une recherche Elasticsearch pour extraire des données nécessaires
     response = es.search(index=index_name, body={"query": {"match_all": {}}}, size=1000)
     hits = [hit['_source'] for hit in response['hits']['hits']]
 
-    # Convertir les résultats en DataFrame pandas
+    # Convertie les résultats en DataFrame pandas
     data = pd.DataFrame(hits)
 
-    # Nettoyer les données : Exemple pour les départements
+    # Nettoye les données : Exemple pour les départements
     data['department'] = data['address'].str[:2]
     data = data[data['department'].fillna('0').str.isdigit()]   # Filtrer les départements valides
 
-    # Compter les restaurants par département
+    # Compte les restaurants par département
     dept_counts = data['department'].value_counts().reset_index()
     dept_counts.columns = ['department', 'count']
 
-    # Créer un dictionnaire GeoJSON des départements avec le nombre de restaurants
+    # Crée un dictionnaire GeoJSON des départements avec le nombre de restaurants
     geojson_data = create_geojson(dept_counts)
 
-    # Préparer les autres données pour les graphiques
+    # Prépare les autres données pour les graphiques
     graph_data = {
         'dept_counts': dept_counts.to_dict(orient='records'),
         'rating_histogram': data['rating'].dropna().tolist(),
@@ -141,11 +158,16 @@ def analyse():
         'geojson_data': geojson_data  # Passer les données GeoJSON pour la carte
     }
 
-    # Passer les données au template
+    # Passe les données au template
     return render_template('analyse.html', graph_data=graph_data)
 
 def create_geojson(dept_counts):
-    # Créer un template de base pour les départements (exemple simple)
+    """
+    Crée un GeoJSON représentant les départements et le nombre de restaurants associés.
+
+    :param dept_counts: DataFrame contenant les départements et leur nombre de restaurants.
+    :return: Dictionnaire GeoJSON.
+    """
     geojson = {
         "type": "FeatureCollection",
         "features": []
