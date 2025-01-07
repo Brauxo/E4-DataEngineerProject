@@ -1,5 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/ESIEE%20Paris%20-%20Projet%20E4%20-%20green?style=flat)
-![Static Badge](https://img.shields.io/badge/last%20commit%20-%20November%202024%20-%20blue)
+![Static Badge](https://img.shields.io/badge/last%20commit%20-%20December%202024%20-%20blue)
 <div align="center">
 <img src="https://github.com/user-attachments/assets/78cac6dc-d058-4576-8eef-572581c74311" width="65%"/>
 </div>
