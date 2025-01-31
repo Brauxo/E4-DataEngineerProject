@@ -19,10 +19,10 @@ La convention de code PEP8 a été utilisée afin de construire un code clair et
 1. [Prérequis d'installation](#1---Prérequis-dinstallation)
 2. [Installation](#2---Installation)
 3. [Lancer le projet](#3---Lancer-le-projet)
-4. [Les différentes pages](#4---Les-differentes-pages)
+4. [Les pages](#4---Les-pages)
 
 ## Guide du Développeur
-1. [Aperçu global du projet](#1---Aperçu-global-du-projet)
+1. [Aperçu global](#1---Aperçu-global)
 2. [Scraping](#2---Scraping)
 3. [API Web](#3---API-Web)
 4. [Architecture et technologies utilisées](#4---Architecture-et-technologies-utilisées)
@@ -85,7 +85,7 @@ Une fois le service flask en vert, vous pouvez cliquer sur le port surligné en 
 
 <p align="center">(<a href="#readme-top">Haut de la page</a>)</p>
 
-## 4 - Les différentes pages
+## 4 - Les pages
 
 <div align="center">
 <h3>Page d'accueil du site</h3>
@@ -145,6 +145,10 @@ La liste des restaurants est paginée, et les utilisateurs peuvent naviguer entr
 <h3> Page d'analyse </h3>
 </div>
 
+![Analyse](img/analyse.gif)
+La page d'analyse qui permet de visualiser quelques informations sur les différents restaurants en France tel que la note, le nombre de restaurants par départements ou encore la répartition des cuisines.
+Une carte de la France est également présente. 
+
 <div align="center">
 <h3> Page a propos de nous </h3>
 </div>
@@ -163,7 +167,7 @@ La page "À propos de nous" présente les contributeurs principaux du projet ave
 ## 1 - Aperçu global
 Le projet propose une solution intégrée permettant de scrapper les données de restaurants depuis **Gault & Millau**, de les stocker dans **MongoDb** et **Elasticsearch**, et de les rendre accessibles via une application web construite avec **Flask**. L'architecture repose sur Docker pour assurer un déploiement reproductible.
 
-## 2 - Scrapping
+## 2 - Scraping
 Le projet utilise **Scrapy** pour effectuer le scraping des données disponibles sur le site Gault&Millau.
 
 Il fonctionne de la manière suivante : 
